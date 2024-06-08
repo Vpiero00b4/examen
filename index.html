@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LOS PATO-EXAMEN!</title>
+    <link rel="stylesheet" type="text/css" href="https://nose.alwaysdata.net/css/style1.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col text-center">
+                <button type="button" class="btn btn-primary" onclick="displayInfo('general')">Información General</button>
+                <button type="button" class="btn btn-secondary" onclick="displayInfo('mallard')">Pato Mallard</button>
+                <button type="button" class="btn btn-success" onclick="displayInfo('wood')">Pato Madera</button>
+                <button type="button" class="btn btn-danger" onclick="displayInfo('mandarin')">Pato Mandarín</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="https://nose.alwaysdata.net/imagen/pato1.jpg" alt="Pato 1" width="200" onclick="move(this)">
+                <img src="https://nose.alwaysdata.net/imagen/pato2.jpg" alt="Pato 2" width="220" onclick="fadeInOut(this)">
+                <img src="https://nose.alwaysdata.net/imagen/pato3.jpg" alt="Pato 3" width="200" onclick="move(this)">
+                <img src="https://nose.alwaysdata.net/imagen/pato4.jpg" alt="Pato 4" width="270" onclick="fadeInOut(this)">
+            </div>
+        </div>
+        <h1 id="title">PATOS</h1>
+        <p id="info">Los patos son aves acuáticas que se encuentran en muchas partes del mundo. Son conocidos por su capacidad de nadar y volar, y se caracterizan por su pico ancho y plano, que utilizan para filtrar el agua en busca de alimentos.</p>
+        <ul id="details" class="list-group">
+            <li class="list-group-item">Son de diferentes colores y tamaños.</li>
+            <li class="list-group-item">Son muy sociales y a menudo se les ve en grupos grandes.</li>
+            <li class="list-group-item">Tienen una gran variedad de vocalizaciones, siendo el "cuac" uno de los sonidos más distintivos.</li>
+            <li class="list-group-item">Muchas especies de patos migran largas distancias cada año.</li>
+        </ul>
+    </div>
+
+    <script src="https://nose2.alwaysdata.net/javascript/piero.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function displayInfo(type) {
+            var info = document.getElementById('info');
+            var details = document.getElementById('details');
+            details.innerHTML = ''; // Clear existing details
+
+            if (type === 'general') {
+                info.innerHTML = 'Los patos son aves acuáticas que se encuentran en muchas partes del mundo. Son conocidos por su capacidad de nadar y volar, y se caracterizan por su pico ancho y plano, que utilizan para filtrar el agua en busca de alimentos.';
+                addDetail('Son de diferentes colores y tamaños.');
+                addDetail('Son muy sociales y a menudo se les ve en grupos grandes.');
+                addDetail('Tienen una gran variedad de vocalizaciones, siendo el "cuac" uno de los sonidos más distintivos.');
+                addDetail('Muchas especies de patos migran largas distancias cada año.');
+            } else if (type === 'mallard') {
+                info.innerHTML = 'El Pato Mallard es una especie muy común y ampliamente distribuida.';
+                addDetail('Nombre científico: Anas platyrhynchos.');
+                addDetail('El macho tiene una cabeza verde brillante y un anillo blanco en el cuello.');
+                addDetail('Se encuentra en humedales, parques y jardines.');
+            } else if (type === 'wood') {
+                info.innerHTML = 'El Pato de Madera es conocido por su hermoso plumaje y hábitos de anidación en árboles.';
+                addDetail('Nombre científico: Aix sponsa.');
+                addDetail('Tiene plumas iridiscentes y marcas distintivas en la cara.');
+                addDetail('Habita en áreas boscosas cerca de agua.');
+            } else if (type === 'mandarin') {
+                info.innerHTML = 'El Pato Mandarín es famoso por su espectacular plumaje y es originario de Asia.';
+                addDetail('Nombre científico: Aix galericulata.');
+                addDetail('Los machos tienen plumas anaranjadas y una cresta distintiva.');
+                addDetail('A menudo se encuentra en jardines y estanques decorativos.');
+            }
+        }
+
+        function addDetail(detail) {
+            var details = document.getElementById('details');
+            var li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = detail;
+            details.appendChild(li);
+        }
+    </script>
+</body>
+</html>
+
